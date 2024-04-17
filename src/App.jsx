@@ -29,8 +29,17 @@ function App() {
 
       return {
         ...prevState,
-        selectedProjectId: undefined,
+        selectedProjectId: undefined, 
         projects: [...prevState.projects, newProject],
+      };
+    });
+  }
+
+  function handleCancelNewProject() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
       };
     });
   }
@@ -38,7 +47,12 @@ function App() {
   let content;
 
   if (projectsState.selectedProjectId === null) {
-    content = <NewProject onAdd={handleAddProject}></NewProject>;
+    content = (
+      <NewProject
+        onAdd={handleAddProject}
+        onCancel={handleCancelNewProject}
+      ></NewProject>
+    );
   } else if (projectsState.selectedProjectId === undefined) {
     content = (
       <NoProjectSelected
