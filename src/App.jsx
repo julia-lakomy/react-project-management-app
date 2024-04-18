@@ -57,7 +57,7 @@ function App() {
 
       return {
         ...prevState,
-        selectedProjectId: undefined, 
+        selectedProjectId: undefined,
         projects: [...prevState.projects, newProject],
       };
     });
@@ -92,8 +92,6 @@ function App() {
       };
     });
   }
-
-
 
   const selectedProject = projectsState.projects.find(
     (project) => project.id === projectsState.selectedProjectId
